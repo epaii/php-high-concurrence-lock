@@ -1,0 +1,19 @@
+{
+  "name": "epii/high-concurrence-lock",
+  "description": "php 程序在高并发时锁框架，支持多种方式，可扩展",
+  "authors": [
+    {
+      "name": "MrRen Epii",
+      "email": "543169072@qq.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "epii\\lock\\": "src/"
+    }
+  }
+}
