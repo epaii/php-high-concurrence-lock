@@ -39,7 +39,10 @@ class FileLock implements ILock
                 }
                 $locked = flock($fp, LOCK_EX | LOCK_NB);
                 if (!$locked) {
-                    usleep(mt_rand(1, 50) * 1000);
+                    if( $timeout>0)
+                    {
+                        usleep(mt_rand(1, 50) * 1000);
+                    }   
                 }
             } while ((!$locked) && ((microtime(true) - $startTime) < $timeout));
 

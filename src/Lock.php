@@ -54,13 +54,12 @@ class Lock
         if (!self::$is_register_shutdown_function) {
             register_shutdown_function(function () {
                 foreach (self::$locks as $key => $value) {
-
                     self::unLock($key);
                 }
             });
         }
         if (!isset(self::$locks[$key])) {
-            if (self::getDriver()->doLock($key, $timeout ? $timeout :self::$timeout)) {
+            if (self::getDriver()->doLock($key, $timeout!==null ? $timeout :self::$timeout)) {
                 self::$locks[$key] = true;
                 return true;
             }
